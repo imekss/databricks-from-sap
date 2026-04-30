@@ -1,0 +1,31 @@
+# Bronze pipeline — raw ingestion from SAP CSVs into Delta.
+#
+# Source: CSV files in /Volumes/<catalog>/<bronze_schema>/raw_data/ — resolved
+# at runtime from the configuration block below, so dev reads from the user's
+# sandbox volume and prod reads from the canonical bronze volume.
+# Output: one Bronze Delta table per source CSV, FAILFAST schema enforcement.
+
+resources:
+  pipelines:
+    n3n3_etl_bronze:
+      name: n3n3_etl_bronze
+      catalog: ${var.catalog}
+      schema: ${var.bronze_schema}
+      serverless: true
+      root_path: "../src/n3n3_etl"
+
+      configuration:
+        catalog: ${var.catalog}
+        bronze_schema: ${var.bronze_schema}
+
+      libraries:
+        - glob:
+            include: ../src/n3n3_etl/transformations/1_bronze/**
+
+      environment:
+        dependencies:
+          # Editable install of the n3n3 Python package so @dp.table functions
+          # can import from n3n3.config.schemas and n3n3.config.settings.
+          - --editable ${workspace.file_path}
+
+          

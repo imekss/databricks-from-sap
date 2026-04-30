@@ -1,0 +1,37 @@
+# Silver pipeline — business-ready dimensions and fact, derived from Bronze.
+#
+# Source: Bronze Delta tables at n3n3.${bronze_schema}.bronze_*
+#   (cross-pipeline reference — NOT `LIVE.*` because bronze is a separate pipeline).
+# Output: renamed, typed dimension/fact tables at n3n3.${silver_schema}.silver_*
+#
+# The `configuration:` block exposes catalog and bronze_schema as variables
+# available inside SQL files — so references like
+# `FROM ${catalog}.${bronze_schema}.t001` work across dev/staging/prod
+# without hardcoded names.
+
+resources:
+  pipelines:
+    n3n3_etl_silver:
+      name: n3n3_etl_silver
+      catalog: ${var.catalog}
+      schema: ${var.silver_schema}
+      serverless: true
+      root_path: "../src/n3n3_etl"
+
+      # Pipeline-level variables — injected into SQL files at runtime.
+      # Silver only READS from Bronze, so only bronze_schema needs exposing.
+      # Silver's own writes go to the `schema:` setting above (silver_schema).
+      configuration:
+        catalog: ${var.catalog}
+        bronze_schema: ${var.bronze_schema}
+
+      libraries:
+        - glob:
+            include: ../src/n3n3_etl/transformations/2_silver/**
+
+      environment:
+        dependencies:
+          # Editable install of the n3n3 package (in case any silver logic
+          # imports from n3n3.config — not strictly needed for pure SQL,
+          # but keeps the environment consistent with bronze/gold).
+          - --editable ${workspace.file_path}

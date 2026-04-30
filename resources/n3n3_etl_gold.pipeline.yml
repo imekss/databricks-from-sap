@@ -1,0 +1,35 @@
+# Gold pipeline — reporting marts, derived from Silver.
+#
+# Source: Silver Delta tables at n3n3.${silver_schema}.silver_*
+#   (cross-pipeline reference — NOT `LIVE.*` because silver is a separate pipeline).
+# Output: business-facing aggregated marts at n3n3.${gold_schema}.gold_*
+#   (e.g. gold_profit_and_loss — the P&L statement that dashboards point at).
+#
+# The `configuration:` block exposes catalog and silver_schema as variables
+# available inside SQL files — so references like
+# `FROM ${catalog}.${silver_schema}.silver_financial_postings` work across
+# dev/staging/prod without hardcoded names.
+
+resources:
+  pipelines:
+    n3n3_etl_gold:
+      name: n3n3_etl_gold
+      catalog: ${var.catalog}
+      schema: ${var.gold_schema}
+      serverless: true
+      root_path: "../src/n3n3_etl"
+
+      # Pipeline-level variables — injected into SQL files at runtime.
+      # Gold only READS from Silver, so only silver_schema needs exposing.
+      # Gold's own writes go to the `schema:` setting above (gold_schema).
+      configuration:
+        catalog: ${var.catalog}
+        silver_schema: ${var.silver_schema}
+
+      libraries:
+        - glob:
+            include: ../src/n3n3_etl/transformations/3_gold/**
+
+      environment:
+        dependencies:
+          - --editable ${workspace.file_path}

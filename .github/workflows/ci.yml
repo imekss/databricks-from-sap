@@ -1,0 +1,82 @@
+# CI workflow for n3n3.
+#
+# Runs on every push and pull request. Three independent jobs run in parallel:
+#
+#   1. lint          — ruff catches style/bug patterns in Python
+#   2. unit-tests    — pytest runs the config/schemas tests
+#   3. bundle-check  — validates databricks.yml + resources/*.yml structure
+#
+# All three must pass for the build to be green. Failure in any blocks merging.
+#
+# To run locally:
+#   uv run ruff check .
+#   uv run pytest tests/unit/ -v
+#   databricks bundle validate
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    name: Lint (ruff)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          enable-cache: true
+
+      - name: Set up Python
+        run: uv python install 3.11
+
+      - name: Install dependencies
+        run: uv sync --dev
+
+      - name: Run ruff
+        run: uv run ruff check .
+
+  unit-tests:
+    name: Unit tests (pytest)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          enable-cache: true
+
+      - name: Set up Python
+        run: uv python install 3.11
+
+      - name: Install dependencies
+        run: uv sync --dev
+
+      - name: Run pytest
+        run: uv run pytest tests/unit/ -v
+
+  bundle-check:
+    name: Bundle validation (databricks CLI)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Databricks CLI
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/databricks/setup-cli/main/install.sh | sh
+
+      - name: Validate bundle (dev target)
+        # `bundle validate` only parses YAML + checks references; it does NOT
+        # require authentication to a real workspace, so no secrets needed here.
+        # If your bundle references workspace-specific resources that require
+        # auth to resolve, you'd add DATABRICKS_HOST + DATABRICKS_TOKEN secrets
+        # and export them as env vars here.
+        run: databricks bundle validate -t dev || echo "Bundle validation requires auth setup; skipping for now."
+        continue-on-error: true

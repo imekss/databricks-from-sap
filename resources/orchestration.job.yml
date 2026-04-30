@@ -1,0 +1,47 @@
+# Orchestration job — full medallion refresh (Bronze → Silver → Gold).
+#
+# Each task triggers one of the three DLT pipelines in sequence.
+# `depends_on` ensures silver waits for bronze to complete, gold waits for silver.
+#
+# In dev (mode: development), the daily trigger is auto-paused, so the job
+# only runs when manually invoked. In prod, the trigger fires daily.
+#
+# Manual runs:
+#   databricks bundle run n3n3_full_refresh -t dev
+#
+# Or run individual pipelines directly:
+#   databricks bundle run n3n3_etl_bronze -t dev
+#   databricks bundle run n3n3_etl_silver -t dev
+#   databricks bundle run n3n3_etl_gold   -t dev
+
+resources:
+  jobs:
+    n3n3_full_refresh:
+      name: n3n3_full_refresh
+      description: Full medallion refresh — bronze → silver → gold, in sequence.
+
+      # Daily schedule. Auto-paused in dev target (mode: development).
+      trigger:
+        periodic:
+          interval: 1
+          unit: DAYS
+
+      tasks:
+        # Step 1 — ingest raw CSVs into bronze Delta tables.
+        - task_key: refresh_bronze
+          pipeline_task:
+            pipeline_id: ${resources.pipelines.n3n3_etl_bronze.id}
+
+        # Step 2 — build silver dimensions and fact (waits for bronze).
+        - task_key: refresh_silver
+          depends_on:
+            - task_key: refresh_bronze
+          pipeline_task:
+            pipeline_id: ${resources.pipelines.n3n3_etl_silver.id}
+
+        # Step 3 — build gold reporting marts (waits for silver).
+        - task_key: refresh_gold
+          depends_on:
+            - task_key: refresh_silver
+          pipeline_task:
+            pipeline_id: ${resources.pipelines.n3n3_etl_gold.id}

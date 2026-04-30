@@ -1,0 +1,51 @@
+# Databricks Asset Bundle for N3N3.
+# Docs: https://docs.databricks.com/dev-tools/bundles/
+#
+# Dev: per-user sandbox, schemas prefixed with username.
+# Prod: shared schemas. Both targets use the host from your CLI profile
+#       (~/.databrickscfg) — no hardcoded workspace.
+
+bundle:
+  name: n3n3
+  uuid: 3aee89c2-ac33-4f99-bc85-f2622e9a7282
+
+include:
+  - resources/*.yml
+
+artifacts:
+  python_artifact:
+    type: whl
+    build: uv build --wheel
+
+variables:
+  catalog:
+    description: Unity Catalog catalog
+  bronze_schema:
+    description: Bronze schema
+  silver_schema:
+    description: Silver schema
+  gold_schema:
+    description: Gold schema
+
+targets:
+  dev:
+    mode: development
+    default: true
+    variables:
+      catalog: n3n3
+      bronze_schema: ${workspace.current_user.short_name}_bronze
+      silver_schema: ${workspace.current_user.short_name}_silver
+      gold_schema: ${workspace.current_user.short_name}_gold
+
+  prod:
+    mode: production
+    workspace:
+      root_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}
+    variables:
+      catalog: n3n3
+      bronze_schema: bronze
+      silver_schema: silver
+      gold_schema: gold
+    permissions:
+      - user_name: ${workspace.current_user.userName}
+        level: CAN_MANAGE

@@ -1,0 +1,77 @@
+SAKNR,TXT20,TXT50,KTOKS,XBILK,GVTYP,KTOPL
+400000,Gross Sales - Women,Gross Sales - Women,REVENUE,,X,N3N3
+400100,Gross Sales - Men,Gross Sales - Men,REVENUE,,X,N3N3
+400200,Gross Sales - Access,Gross Sales - Accessories,REVENUE,,X,N3N3
+400300,Gross Sales - Footwe,Gross Sales - Footwear,REVENUE,,X,N3N3
+401000,Gross Sales - Retail,Gross Sales - Retail,REVENUE,,X,N3N3
+401100,Gross Sales - E-Comm,Gross Sales - E-Commerce,REVENUE,,X,N3N3
+401200,Gross Sales - Outlet,Gross Sales - Outlet,REVENUE,,X,N3N3
+401300,Gross Sales - Wholes,Gross Sales - Wholesale,REVENUE,,X,N3N3
+410000,Sales Discounts,Sales Discounts,DEDUCTION,,X,N3N3
+410100,Sales Returns,Sales Returns,DEDUCTION,,X,N3N3
+410200,Markdowns,Markdowns,DEDUCTION,,X,N3N3
+410300,Loyalty Discounts,Loyalty Discounts,DEDUCTION,,X,N3N3
+410400,Wholesale Rebates,Wholesale Rebates,DEDUCTION,,X,N3N3
+500000,COGS - Women,COGS - Women,COGS,,X,N3N3
+500100,COGS - Men,COGS - Men,COGS,,X,N3N3
+500200,COGS - Accessories,COGS - Accessories,COGS,,X,N3N3
+500300,COGS - Footwear,COGS - Footwear,COGS,,X,N3N3
+500400,COGS - Freight In,COGS - Freight In,COGS,,X,N3N3
+500500,COGS - Customs & Dut,COGS - Customs & Duties,COGS,,X,N3N3
+500600,COGS - Inventory Adj,COGS - Inventory Adjustments,COGS,,X,N3N3
+500700,COGS - Shrinkage,COGS - Shrinkage,COGS,,X,N3N3
+610000,Warehousing Costs,Warehousing Costs,OPEX,,X,N3N3
+610100,Outbound Freight,Outbound Freight,OPEX,,X,N3N3
+610200,Last Mile Delivery,Last Mile Delivery,OPEX,,X,N3N3
+610300,Packaging Materials,Packaging Materials,OPEX,,X,N3N3
+610400,Returns Processing,Returns Processing,OPEX,,X,N3N3
+610500,Third-Party Logistic,Third-Party Logistics,OPEX,,X,N3N3
+620000,Digital Marketing,Digital Marketing,OPEX,,X,N3N3
+620100,Print & OOH Advertis,Print & OOH Advertising,OPEX,,X,N3N3
+620200,Influencer & Social ,Influencer & Social Media,OPEX,,X,N3N3
+620300,CRM & Loyalty Progra,CRM & Loyalty Program,OPEX,,X,N3N3
+620400,PR & Events,PR & Events,OPEX,,X,N3N3
+620500,Brand & Creative,Brand & Creative,OPEX,,X,N3N3
+620600,Seasonal Campaign Co,Seasonal Campaign Costs,OPEX,,X,N3N3
+630000,Store Staff Salaries,Store Staff Salaries,OPEX,,X,N3N3
+630100,Store Staff Benefits,Store Staff Benefits,OPEX,,X,N3N3
+630200,Store Manager Compen,Store Manager Compensation,OPEX,,X,N3N3
+630300,Temporary / Seasonal,Temporary / Seasonal Staff,OPEX,,X,N3N3
+630400,Sales Commission,Sales Commission,OPEX,,X,N3N3
+630500,Training & Developme,Training & Development,OPEX,,X,N3N3
+640000,Rent - Stores,Rent - Stores,OPEX,,X,N3N3
+640100,Rent - Offices,Rent - Offices,OPEX,,X,N3N3
+640200,Rent - Warehouses,Rent - Warehouses,OPEX,,X,N3N3
+650000,Utilities - Stores,Utilities - Stores,OPEX,,X,N3N3
+650100,Utilities - Offices,Utilities - Offices,OPEX,,X,N3N3
+650200,Utilities - Warehous,Utilities - Warehouses,OPEX,,X,N3N3
+660000,HQ Salaries,HQ Salaries,OPEX,,X,N3N3
+660100,HQ Benefits & Insura,HQ Benefits & Insurance,OPEX,,X,N3N3
+660200,Executive Compensati,Executive Compensation,OPEX,,X,N3N3
+661000,IT Infrastructure,IT Infrastructure,OPEX,,X,N3N3
+661100,Software & Licensing,Software & Licensing,OPEX,,X,N3N3
+661200,Telecom & Connectivi,Telecom & Connectivity,OPEX,,X,N3N3
+662000,Legal & Consulting,Legal & Consulting,OPEX,,X,N3N3
+662100,Audit & Tax Advisory,Audit & Tax Advisory,OPEX,,X,N3N3
+662200,Bank Charges & Fees,Bank Charges & Fees,OPEX,,X,N3N3
+663000,Travel & Entertainme,Travel & Entertainment,OPEX,,X,N3N3
+663100,Office Supplies,Office Supplies,OPEX,,X,N3N3
+663200,Miscellaneous G&A,Miscellaneous G&A,OPEX,,X,N3N3
+670000,Delivery Fees,Delivery Fees,OPEX,,X,N3N3
+670100,Payment Processing F,Payment Processing Fees,OPEX,,X,N3N3
+670200,Marketplace Commissi,Marketplace Commissions,OPEX,,X,N3N3
+690000,Depreciation - Fixed,Depreciation - Fixed Assets,OPEX,,X,N3N3
+690100,Depreciation - RoU A,Depreciation - RoU Assets,OPEX,,X,N3N3
+690200,Amortization - Intan,Amortization - Intangibles,OPEX,,X,N3N3
+100000,Cash & Bank,Cash & Bank,ASSET,X,,N3N3
+110000,Accounts Receivable,Accounts Receivable,ASSET,X,,N3N3
+120000,Inventory,Inventory,ASSET,X,,N3N3
+130000,Prepaid Expenses,Prepaid Expenses,ASSET,X,,N3N3
+150000,Fixed Assets,Fixed Assets,ASSET,X,,N3N3
+160000,Accumulated Deprecia,Accumulated Depreciation,ASSET,X,,N3N3
+200000,Accounts Payable,Accounts Payable,LIABILITY,X,,N3N3
+210000,Accrued Liabilities,Accrued Liabilities,LIABILITY,X,,N3N3
+220000,VAT / Sales Tax Paya,VAT / Sales Tax Payable,LIABILITY,X,,N3N3
+230000,Short-term Borrowing,Short-term Borrowings,LIABILITY,X,,N3N3
+300000,Share Capital,Share Capital,EQUITY,X,,N3N3
+310000,Retained Earnings,Retained Earnings,EQUITY,X,,N3N3

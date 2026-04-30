@@ -1,0 +1,609 @@
+BUKRS,SAKNR,TXT50,KTOKS,XBILK,GVTYP,WAERS
+N3NL,400000,Gross Sales - Women,REVENUE,,X,EUR
+N3NL,400100,Gross Sales - Men,REVENUE,,X,EUR
+N3NL,400200,Gross Sales - Accessories,REVENUE,,X,EUR
+N3NL,400300,Gross Sales - Footwear,REVENUE,,X,EUR
+N3NL,401000,Gross Sales - Retail,REVENUE,,X,EUR
+N3NL,401100,Gross Sales - E-Commerce,REVENUE,,X,EUR
+N3NL,401200,Gross Sales - Outlet,REVENUE,,X,EUR
+N3NL,401300,Gross Sales - Wholesale,REVENUE,,X,EUR
+N3NL,410000,Sales Discounts,DEDUCTION,,X,EUR
+N3NL,410100,Sales Returns,DEDUCTION,,X,EUR
+N3NL,410200,Markdowns,DEDUCTION,,X,EUR
+N3NL,410300,Loyalty Discounts,DEDUCTION,,X,EUR
+N3NL,410400,Wholesale Rebates,DEDUCTION,,X,EUR
+N3NL,500000,COGS - Women,COGS,,X,EUR
+N3NL,500100,COGS - Men,COGS,,X,EUR
+N3NL,500200,COGS - Accessories,COGS,,X,EUR
+N3NL,500300,COGS - Footwear,COGS,,X,EUR
+N3NL,500400,COGS - Freight In,COGS,,X,EUR
+N3NL,500500,COGS - Customs & Duties,COGS,,X,EUR
+N3NL,500600,COGS - Inventory Adjustments,COGS,,X,EUR
+N3NL,500700,COGS - Shrinkage,COGS,,X,EUR
+N3NL,610000,Warehousing Costs,OPEX,,X,EUR
+N3NL,610100,Outbound Freight,OPEX,,X,EUR
+N3NL,610200,Last Mile Delivery,OPEX,,X,EUR
+N3NL,610300,Packaging Materials,OPEX,,X,EUR
+N3NL,610400,Returns Processing,OPEX,,X,EUR
+N3NL,610500,Third-Party Logistics,OPEX,,X,EUR
+N3NL,620000,Digital Marketing,OPEX,,X,EUR
+N3NL,620100,Print & OOH Advertising,OPEX,,X,EUR
+N3NL,620200,Influencer & Social Media,OPEX,,X,EUR
+N3NL,620300,CRM & Loyalty Program,OPEX,,X,EUR
+N3NL,620400,PR & Events,OPEX,,X,EUR
+N3NL,620500,Brand & Creative,OPEX,,X,EUR
+N3NL,620600,Seasonal Campaign Costs,OPEX,,X,EUR
+N3NL,630000,Store Staff Salaries,OPEX,,X,EUR
+N3NL,630100,Store Staff Benefits,OPEX,,X,EUR
+N3NL,630200,Store Manager Compensation,OPEX,,X,EUR
+N3NL,630300,Temporary / Seasonal Staff,OPEX,,X,EUR
+N3NL,630400,Sales Commission,OPEX,,X,EUR
+N3NL,630500,Training & Development,OPEX,,X,EUR
+N3NL,640000,Rent - Stores,OPEX,,X,EUR
+N3NL,640100,Rent - Offices,OPEX,,X,EUR
+N3NL,640200,Rent - Warehouses,OPEX,,X,EUR
+N3NL,650000,Utilities - Stores,OPEX,,X,EUR
+N3NL,650100,Utilities - Offices,OPEX,,X,EUR
+N3NL,650200,Utilities - Warehouses,OPEX,,X,EUR
+N3NL,660000,HQ Salaries,OPEX,,X,EUR
+N3NL,660100,HQ Benefits & Insurance,OPEX,,X,EUR
+N3NL,660200,Executive Compensation,OPEX,,X,EUR
+N3NL,661000,IT Infrastructure,OPEX,,X,EUR
+N3NL,661100,Software & Licensing,OPEX,,X,EUR
+N3NL,661200,Telecom & Connectivity,OPEX,,X,EUR
+N3NL,662000,Legal & Consulting,OPEX,,X,EUR
+N3NL,662100,Audit & Tax Advisory,OPEX,,X,EUR
+N3NL,662200,Bank Charges & Fees,OPEX,,X,EUR
+N3NL,663000,Travel & Entertainment,OPEX,,X,EUR
+N3NL,663100,Office Supplies,OPEX,,X,EUR
+N3NL,663200,Miscellaneous G&A,OPEX,,X,EUR
+N3NL,670000,Delivery Fees,OPEX,,X,EUR
+N3NL,670100,Payment Processing Fees,OPEX,,X,EUR
+N3NL,670200,Marketplace Commissions,OPEX,,X,EUR
+N3NL,690000,Depreciation - Fixed Assets,OPEX,,X,EUR
+N3NL,690100,Depreciation - RoU Assets,OPEX,,X,EUR
+N3NL,690200,Amortization - Intangibles,OPEX,,X,EUR
+N3NL,100000,Cash & Bank,ASSET,X,,EUR
+N3NL,110000,Accounts Receivable,ASSET,X,,EUR
+N3NL,120000,Inventory,ASSET,X,,EUR
+N3NL,130000,Prepaid Expenses,ASSET,X,,EUR
+N3NL,150000,Fixed Assets,ASSET,X,,EUR
+N3NL,160000,Accumulated Depreciation,ASSET,X,,EUR
+N3NL,200000,Accounts Payable,LIABILITY,X,,EUR
+N3NL,210000,Accrued Liabilities,LIABILITY,X,,EUR
+N3NL,220000,VAT / Sales Tax Payable,LIABILITY,X,,EUR
+N3NL,230000,Short-term Borrowings,LIABILITY,X,,EUR
+N3NL,300000,Share Capital,EQUITY,X,,EUR
+N3NL,310000,Retained Earnings,EQUITY,X,,EUR
+N3IT,400000,Gross Sales - Women,REVENUE,,X,EUR
+N3IT,400100,Gross Sales - Men,REVENUE,,X,EUR
+N3IT,400200,Gross Sales - Accessories,REVENUE,,X,EUR
+N3IT,400300,Gross Sales - Footwear,REVENUE,,X,EUR
+N3IT,401000,Gross Sales - Retail,REVENUE,,X,EUR
+N3IT,401100,Gross Sales - E-Commerce,REVENUE,,X,EUR
+N3IT,401200,Gross Sales - Outlet,REVENUE,,X,EUR
+N3IT,401300,Gross Sales - Wholesale,REVENUE,,X,EUR
+N3IT,410000,Sales Discounts,DEDUCTION,,X,EUR
+N3IT,410100,Sales Returns,DEDUCTION,,X,EUR
+N3IT,410200,Markdowns,DEDUCTION,,X,EUR
+N3IT,410300,Loyalty Discounts,DEDUCTION,,X,EUR
+N3IT,410400,Wholesale Rebates,DEDUCTION,,X,EUR
+N3IT,500000,COGS - Women,COGS,,X,EUR
+N3IT,500100,COGS - Men,COGS,,X,EUR
+N3IT,500200,COGS - Accessories,COGS,,X,EUR
+N3IT,500300,COGS - Footwear,COGS,,X,EUR
+N3IT,500400,COGS - Freight In,COGS,,X,EUR
+N3IT,500500,COGS - Customs & Duties,COGS,,X,EUR
+N3IT,500600,COGS - Inventory Adjustments,COGS,,X,EUR
+N3IT,500700,COGS - Shrinkage,COGS,,X,EUR
+N3IT,610000,Warehousing Costs,OPEX,,X,EUR
+N3IT,610100,Outbound Freight,OPEX,,X,EUR
+N3IT,610200,Last Mile Delivery,OPEX,,X,EUR
+N3IT,610300,Packaging Materials,OPEX,,X,EUR
+N3IT,610400,Returns Processing,OPEX,,X,EUR
+N3IT,610500,Third-Party Logistics,OPEX,,X,EUR
+N3IT,620000,Digital Marketing,OPEX,,X,EUR
+N3IT,620100,Print & OOH Advertising,OPEX,,X,EUR
+N3IT,620200,Influencer & Social Media,OPEX,,X,EUR
+N3IT,620300,CRM & Loyalty Program,OPEX,,X,EUR
+N3IT,620400,PR & Events,OPEX,,X,EUR
+N3IT,620500,Brand & Creative,OPEX,,X,EUR
+N3IT,620600,Seasonal Campaign Costs,OPEX,,X,EUR
+N3IT,630000,Store Staff Salaries,OPEX,,X,EUR
+N3IT,630100,Store Staff Benefits,OPEX,,X,EUR
+N3IT,630200,Store Manager Compensation,OPEX,,X,EUR
+N3IT,630300,Temporary / Seasonal Staff,OPEX,,X,EUR
+N3IT,630400,Sales Commission,OPEX,,X,EUR
+N3IT,630500,Training & Development,OPEX,,X,EUR
+N3IT,640000,Rent - Stores,OPEX,,X,EUR
+N3IT,640100,Rent - Offices,OPEX,,X,EUR
+N3IT,640200,Rent - Warehouses,OPEX,,X,EUR
+N3IT,650000,Utilities - Stores,OPEX,,X,EUR
+N3IT,650100,Utilities - Offices,OPEX,,X,EUR
+N3IT,650200,Utilities - Warehouses,OPEX,,X,EUR
+N3IT,660000,HQ Salaries,OPEX,,X,EUR
+N3IT,660100,HQ Benefits & Insurance,OPEX,,X,EUR
+N3IT,660200,Executive Compensation,OPEX,,X,EUR
+N3IT,661000,IT Infrastructure,OPEX,,X,EUR
+N3IT,661100,Software & Licensing,OPEX,,X,EUR
+N3IT,661200,Telecom & Connectivity,OPEX,,X,EUR
+N3IT,662000,Legal & Consulting,OPEX,,X,EUR
+N3IT,662100,Audit & Tax Advisory,OPEX,,X,EUR
+N3IT,662200,Bank Charges & Fees,OPEX,,X,EUR
+N3IT,663000,Travel & Entertainment,OPEX,,X,EUR
+N3IT,663100,Office Supplies,OPEX,,X,EUR
+N3IT,663200,Miscellaneous G&A,OPEX,,X,EUR
+N3IT,670000,Delivery Fees,OPEX,,X,EUR
+N3IT,670100,Payment Processing Fees,OPEX,,X,EUR
+N3IT,670200,Marketplace Commissions,OPEX,,X,EUR
+N3IT,690000,Depreciation - Fixed Assets,OPEX,,X,EUR
+N3IT,690100,Depreciation - RoU Assets,OPEX,,X,EUR
+N3IT,690200,Amortization - Intangibles,OPEX,,X,EUR
+N3IT,100000,Cash & Bank,ASSET,X,,EUR
+N3IT,110000,Accounts Receivable,ASSET,X,,EUR
+N3IT,120000,Inventory,ASSET,X,,EUR
+N3IT,130000,Prepaid Expenses,ASSET,X,,EUR
+N3IT,150000,Fixed Assets,ASSET,X,,EUR
+N3IT,160000,Accumulated Depreciation,ASSET,X,,EUR
+N3IT,200000,Accounts Payable,LIABILITY,X,,EUR
+N3IT,210000,Accrued Liabilities,LIABILITY,X,,EUR
+N3IT,220000,VAT / Sales Tax Payable,LIABILITY,X,,EUR
+N3IT,230000,Short-term Borrowings,LIABILITY,X,,EUR
+N3IT,300000,Share Capital,EQUITY,X,,EUR
+N3IT,310000,Retained Earnings,EQUITY,X,,EUR
+N3FR,400000,Gross Sales - Women,REVENUE,,X,EUR
+N3FR,400100,Gross Sales - Men,REVENUE,,X,EUR
+N3FR,400200,Gross Sales - Accessories,REVENUE,,X,EUR
+N3FR,400300,Gross Sales - Footwear,REVENUE,,X,EUR
+N3FR,401000,Gross Sales - Retail,REVENUE,,X,EUR
+N3FR,401100,Gross Sales - E-Commerce,REVENUE,,X,EUR
+N3FR,401200,Gross Sales - Outlet,REVENUE,,X,EUR
+N3FR,401300,Gross Sales - Wholesale,REVENUE,,X,EUR
+N3FR,410000,Sales Discounts,DEDUCTION,,X,EUR
+N3FR,410100,Sales Returns,DEDUCTION,,X,EUR
+N3FR,410200,Markdowns,DEDUCTION,,X,EUR
+N3FR,410300,Loyalty Discounts,DEDUCTION,,X,EUR
+N3FR,410400,Wholesale Rebates,DEDUCTION,,X,EUR
+N3FR,500000,COGS - Women,COGS,,X,EUR
+N3FR,500100,COGS - Men,COGS,,X,EUR
+N3FR,500200,COGS - Accessories,COGS,,X,EUR
+N3FR,500300,COGS - Footwear,COGS,,X,EUR
+N3FR,500400,COGS - Freight In,COGS,,X,EUR
+N3FR,500500,COGS - Customs & Duties,COGS,,X,EUR
+N3FR,500600,COGS - Inventory Adjustments,COGS,,X,EUR
+N3FR,500700,COGS - Shrinkage,COGS,,X,EUR
+N3FR,610000,Warehousing Costs,OPEX,,X,EUR
+N3FR,610100,Outbound Freight,OPEX,,X,EUR
+N3FR,610200,Last Mile Delivery,OPEX,,X,EUR
+N3FR,610300,Packaging Materials,OPEX,,X,EUR
+N3FR,610400,Returns Processing,OPEX,,X,EUR
+N3FR,610500,Third-Party Logistics,OPEX,,X,EUR
+N3FR,620000,Digital Marketing,OPEX,,X,EUR
+N3FR,620100,Print & OOH Advertising,OPEX,,X,EUR
+N3FR,620200,Influencer & Social Media,OPEX,,X,EUR
+N3FR,620300,CRM & Loyalty Program,OPEX,,X,EUR
+N3FR,620400,PR & Events,OPEX,,X,EUR
+N3FR,620500,Brand & Creative,OPEX,,X,EUR
+N3FR,620600,Seasonal Campaign Costs,OPEX,,X,EUR
+N3FR,630000,Store Staff Salaries,OPEX,,X,EUR
+N3FR,630100,Store Staff Benefits,OPEX,,X,EUR
+N3FR,630200,Store Manager Compensation,OPEX,,X,EUR
+N3FR,630300,Temporary / Seasonal Staff,OPEX,,X,EUR
+N3FR,630400,Sales Commission,OPEX,,X,EUR
+N3FR,630500,Training & Development,OPEX,,X,EUR
+N3FR,640000,Rent - Stores,OPEX,,X,EUR
+N3FR,640100,Rent - Offices,OPEX,,X,EUR
+N3FR,640200,Rent - Warehouses,OPEX,,X,EUR
+N3FR,650000,Utilities - Stores,OPEX,,X,EUR
+N3FR,650100,Utilities - Offices,OPEX,,X,EUR
+N3FR,650200,Utilities - Warehouses,OPEX,,X,EUR
+N3FR,660000,HQ Salaries,OPEX,,X,EUR
+N3FR,660100,HQ Benefits & Insurance,OPEX,,X,EUR
+N3FR,660200,Executive Compensation,OPEX,,X,EUR
+N3FR,661000,IT Infrastructure,OPEX,,X,EUR
+N3FR,661100,Software & Licensing,OPEX,,X,EUR
+N3FR,661200,Telecom & Connectivity,OPEX,,X,EUR
+N3FR,662000,Legal & Consulting,OPEX,,X,EUR
+N3FR,662100,Audit & Tax Advisory,OPEX,,X,EUR
+N3FR,662200,Bank Charges & Fees,OPEX,,X,EUR
+N3FR,663000,Travel & Entertainment,OPEX,,X,EUR
+N3FR,663100,Office Supplies,OPEX,,X,EUR
+N3FR,663200,Miscellaneous G&A,OPEX,,X,EUR
+N3FR,670000,Delivery Fees,OPEX,,X,EUR
+N3FR,670100,Payment Processing Fees,OPEX,,X,EUR
+N3FR,670200,Marketplace Commissions,OPEX,,X,EUR
+N3FR,690000,Depreciation - Fixed Assets,OPEX,,X,EUR
+N3FR,690100,Depreciation - RoU Assets,OPEX,,X,EUR
+N3FR,690200,Amortization - Intangibles,OPEX,,X,EUR
+N3FR,100000,Cash & Bank,ASSET,X,,EUR
+N3FR,110000,Accounts Receivable,ASSET,X,,EUR
+N3FR,120000,Inventory,ASSET,X,,EUR
+N3FR,130000,Prepaid Expenses,ASSET,X,,EUR
+N3FR,150000,Fixed Assets,ASSET,X,,EUR
+N3FR,160000,Accumulated Depreciation,ASSET,X,,EUR
+N3FR,200000,Accounts Payable,LIABILITY,X,,EUR
+N3FR,210000,Accrued Liabilities,LIABILITY,X,,EUR
+N3FR,220000,VAT / Sales Tax Payable,LIABILITY,X,,EUR
+N3FR,230000,Short-term Borrowings,LIABILITY,X,,EUR
+N3FR,300000,Share Capital,EQUITY,X,,EUR
+N3FR,310000,Retained Earnings,EQUITY,X,,EUR
+N3DE,400000,Gross Sales - Women,REVENUE,,X,EUR
+N3DE,400100,Gross Sales - Men,REVENUE,,X,EUR
+N3DE,400200,Gross Sales - Accessories,REVENUE,,X,EUR
+N3DE,400300,Gross Sales - Footwear,REVENUE,,X,EUR
+N3DE,401000,Gross Sales - Retail,REVENUE,,X,EUR
+N3DE,401100,Gross Sales - E-Commerce,REVENUE,,X,EUR
+N3DE,401200,Gross Sales - Outlet,REVENUE,,X,EUR
+N3DE,401300,Gross Sales - Wholesale,REVENUE,,X,EUR
+N3DE,410000,Sales Discounts,DEDUCTION,,X,EUR
+N3DE,410100,Sales Returns,DEDUCTION,,X,EUR
+N3DE,410200,Markdowns,DEDUCTION,,X,EUR
+N3DE,410300,Loyalty Discounts,DEDUCTION,,X,EUR
+N3DE,410400,Wholesale Rebates,DEDUCTION,,X,EUR
+N3DE,500000,COGS - Women,COGS,,X,EUR
+N3DE,500100,COGS - Men,COGS,,X,EUR
+N3DE,500200,COGS - Accessories,COGS,,X,EUR
+N3DE,500300,COGS - Footwear,COGS,,X,EUR
+N3DE,500400,COGS - Freight In,COGS,,X,EUR
+N3DE,500500,COGS - Customs & Duties,COGS,,X,EUR
+N3DE,500600,COGS - Inventory Adjustments,COGS,,X,EUR
+N3DE,500700,COGS - Shrinkage,COGS,,X,EUR
+N3DE,610000,Warehousing Costs,OPEX,,X,EUR
+N3DE,610100,Outbound Freight,OPEX,,X,EUR
+N3DE,610200,Last Mile Delivery,OPEX,,X,EUR
+N3DE,610300,Packaging Materials,OPEX,,X,EUR
+N3DE,610400,Returns Processing,OPEX,,X,EUR
+N3DE,610500,Third-Party Logistics,OPEX,,X,EUR
+N3DE,620000,Digital Marketing,OPEX,,X,EUR
+N3DE,620100,Print & OOH Advertising,OPEX,,X,EUR
+N3DE,620200,Influencer & Social Media,OPEX,,X,EUR
+N3DE,620300,CRM & Loyalty Program,OPEX,,X,EUR
+N3DE,620400,PR & Events,OPEX,,X,EUR
+N3DE,620500,Brand & Creative,OPEX,,X,EUR
+N3DE,620600,Seasonal Campaign Costs,OPEX,,X,EUR
+N3DE,630000,Store Staff Salaries,OPEX,,X,EUR
+N3DE,630100,Store Staff Benefits,OPEX,,X,EUR
+N3DE,630200,Store Manager Compensation,OPEX,,X,EUR
+N3DE,630300,Temporary / Seasonal Staff,OPEX,,X,EUR
+N3DE,630400,Sales Commission,OPEX,,X,EUR
+N3DE,630500,Training & Development,OPEX,,X,EUR
+N3DE,640000,Rent - Stores,OPEX,,X,EUR
+N3DE,640100,Rent - Offices,OPEX,,X,EUR
+N3DE,640200,Rent - Warehouses,OPEX,,X,EUR
+N3DE,650000,Utilities - Stores,OPEX,,X,EUR
+N3DE,650100,Utilities - Offices,OPEX,,X,EUR
+N3DE,650200,Utilities - Warehouses,OPEX,,X,EUR
+N3DE,660000,HQ Salaries,OPEX,,X,EUR
+N3DE,660100,HQ Benefits & Insurance,OPEX,,X,EUR
+N3DE,660200,Executive Compensation,OPEX,,X,EUR
+N3DE,661000,IT Infrastructure,OPEX,,X,EUR
+N3DE,661100,Software & Licensing,OPEX,,X,EUR
+N3DE,661200,Telecom & Connectivity,OPEX,,X,EUR
+N3DE,662000,Legal & Consulting,OPEX,,X,EUR
+N3DE,662100,Audit & Tax Advisory,OPEX,,X,EUR
+N3DE,662200,Bank Charges & Fees,OPEX,,X,EUR
+N3DE,663000,Travel & Entertainment,OPEX,,X,EUR
+N3DE,663100,Office Supplies,OPEX,,X,EUR
+N3DE,663200,Miscellaneous G&A,OPEX,,X,EUR
+N3DE,670000,Delivery Fees,OPEX,,X,EUR
+N3DE,670100,Payment Processing Fees,OPEX,,X,EUR
+N3DE,670200,Marketplace Commissions,OPEX,,X,EUR
+N3DE,690000,Depreciation - Fixed Assets,OPEX,,X,EUR
+N3DE,690100,Depreciation - RoU Assets,OPEX,,X,EUR
+N3DE,690200,Amortization - Intangibles,OPEX,,X,EUR
+N3DE,100000,Cash & Bank,ASSET,X,,EUR
+N3DE,110000,Accounts Receivable,ASSET,X,,EUR
+N3DE,120000,Inventory,ASSET,X,,EUR
+N3DE,130000,Prepaid Expenses,ASSET,X,,EUR
+N3DE,150000,Fixed Assets,ASSET,X,,EUR
+N3DE,160000,Accumulated Depreciation,ASSET,X,,EUR
+N3DE,200000,Accounts Payable,LIABILITY,X,,EUR
+N3DE,210000,Accrued Liabilities,LIABILITY,X,,EUR
+N3DE,220000,VAT / Sales Tax Payable,LIABILITY,X,,EUR
+N3DE,230000,Short-term Borrowings,LIABILITY,X,,EUR
+N3DE,300000,Share Capital,EQUITY,X,,EUR
+N3DE,310000,Retained Earnings,EQUITY,X,,EUR
+N3ES,400000,Gross Sales - Women,REVENUE,,X,EUR
+N3ES,400100,Gross Sales - Men,REVENUE,,X,EUR
+N3ES,400200,Gross Sales - Accessories,REVENUE,,X,EUR
+N3ES,400300,Gross Sales - Footwear,REVENUE,,X,EUR
+N3ES,401000,Gross Sales - Retail,REVENUE,,X,EUR
+N3ES,401100,Gross Sales - E-Commerce,REVENUE,,X,EUR
+N3ES,401200,Gross Sales - Outlet,REVENUE,,X,EUR
+N3ES,401300,Gross Sales - Wholesale,REVENUE,,X,EUR
+N3ES,410000,Sales Discounts,DEDUCTION,,X,EUR
+N3ES,410100,Sales Returns,DEDUCTION,,X,EUR
+N3ES,410200,Markdowns,DEDUCTION,,X,EUR
+N3ES,410300,Loyalty Discounts,DEDUCTION,,X,EUR
+N3ES,410400,Wholesale Rebates,DEDUCTION,,X,EUR
+N3ES,500000,COGS - Women,COGS,,X,EUR
+N3ES,500100,COGS - Men,COGS,,X,EUR
+N3ES,500200,COGS - Accessories,COGS,,X,EUR
+N3ES,500300,COGS - Footwear,COGS,,X,EUR
+N3ES,500400,COGS - Freight In,COGS,,X,EUR
+N3ES,500500,COGS - Customs & Duties,COGS,,X,EUR
+N3ES,500600,COGS - Inventory Adjustments,COGS,,X,EUR
+N3ES,500700,COGS - Shrinkage,COGS,,X,EUR
+N3ES,610000,Warehousing Costs,OPEX,,X,EUR
+N3ES,610100,Outbound Freight,OPEX,,X,EUR
+N3ES,610200,Last Mile Delivery,OPEX,,X,EUR
+N3ES,610300,Packaging Materials,OPEX,,X,EUR
+N3ES,610400,Returns Processing,OPEX,,X,EUR
+N3ES,610500,Third-Party Logistics,OPEX,,X,EUR
+N3ES,620000,Digital Marketing,OPEX,,X,EUR
+N3ES,620100,Print & OOH Advertising,OPEX,,X,EUR
+N3ES,620200,Influencer & Social Media,OPEX,,X,EUR
+N3ES,620300,CRM & Loyalty Program,OPEX,,X,EUR
+N3ES,620400,PR & Events,OPEX,,X,EUR
+N3ES,620500,Brand & Creative,OPEX,,X,EUR
+N3ES,620600,Seasonal Campaign Costs,OPEX,,X,EUR
+N3ES,630000,Store Staff Salaries,OPEX,,X,EUR
+N3ES,630100,Store Staff Benefits,OPEX,,X,EUR
+N3ES,630200,Store Manager Compensation,OPEX,,X,EUR
+N3ES,630300,Temporary / Seasonal Staff,OPEX,,X,EUR
+N3ES,630400,Sales Commission,OPEX,,X,EUR
+N3ES,630500,Training & Development,OPEX,,X,EUR
+N3ES,640000,Rent - Stores,OPEX,,X,EUR
+N3ES,640100,Rent - Offices,OPEX,,X,EUR
+N3ES,640200,Rent - Warehouses,OPEX,,X,EUR
+N3ES,650000,Utilities - Stores,OPEX,,X,EUR
+N3ES,650100,Utilities - Offices,OPEX,,X,EUR
+N3ES,650200,Utilities - Warehouses,OPEX,,X,EUR
+N3ES,660000,HQ Salaries,OPEX,,X,EUR
+N3ES,660100,HQ Benefits & Insurance,OPEX,,X,EUR
+N3ES,660200,Executive Compensation,OPEX,,X,EUR
+N3ES,661000,IT Infrastructure,OPEX,,X,EUR
+N3ES,661100,Software & Licensing,OPEX,,X,EUR
+N3ES,661200,Telecom & Connectivity,OPEX,,X,EUR
+N3ES,662000,Legal & Consulting,OPEX,,X,EUR
+N3ES,662100,Audit & Tax Advisory,OPEX,,X,EUR
+N3ES,662200,Bank Charges & Fees,OPEX,,X,EUR
+N3ES,663000,Travel & Entertainment,OPEX,,X,EUR
+N3ES,663100,Office Supplies,OPEX,,X,EUR
+N3ES,663200,Miscellaneous G&A,OPEX,,X,EUR
+N3ES,670000,Delivery Fees,OPEX,,X,EUR
+N3ES,670100,Payment Processing Fees,OPEX,,X,EUR
+N3ES,670200,Marketplace Commissions,OPEX,,X,EUR
+N3ES,690000,Depreciation - Fixed Assets,OPEX,,X,EUR
+N3ES,690100,Depreciation - RoU Assets,OPEX,,X,EUR
+N3ES,690200,Amortization - Intangibles,OPEX,,X,EUR
+N3ES,100000,Cash & Bank,ASSET,X,,EUR
+N3ES,110000,Accounts Receivable,ASSET,X,,EUR
+N3ES,120000,Inventory,ASSET,X,,EUR
+N3ES,130000,Prepaid Expenses,ASSET,X,,EUR
+N3ES,150000,Fixed Assets,ASSET,X,,EUR
+N3ES,160000,Accumulated Depreciation,ASSET,X,,EUR
+N3ES,200000,Accounts Payable,LIABILITY,X,,EUR
+N3ES,210000,Accrued Liabilities,LIABILITY,X,,EUR
+N3ES,220000,VAT / Sales Tax Payable,LIABILITY,X,,EUR
+N3ES,230000,Short-term Borrowings,LIABILITY,X,,EUR
+N3ES,300000,Share Capital,EQUITY,X,,EUR
+N3ES,310000,Retained Earnings,EQUITY,X,,EUR
+N3SN,400000,Gross Sales - Women,REVENUE,,X,XOF
+N3SN,400100,Gross Sales - Men,REVENUE,,X,XOF
+N3SN,400200,Gross Sales - Accessories,REVENUE,,X,XOF
+N3SN,400300,Gross Sales - Footwear,REVENUE,,X,XOF
+N3SN,401000,Gross Sales - Retail,REVENUE,,X,XOF
+N3SN,401100,Gross Sales - E-Commerce,REVENUE,,X,XOF
+N3SN,401200,Gross Sales - Outlet,REVENUE,,X,XOF
+N3SN,401300,Gross Sales - Wholesale,REVENUE,,X,XOF
+N3SN,410000,Sales Discounts,DEDUCTION,,X,XOF
+N3SN,410100,Sales Returns,DEDUCTION,,X,XOF
+N3SN,410200,Markdowns,DEDUCTION,,X,XOF
+N3SN,410300,Loyalty Discounts,DEDUCTION,,X,XOF
+N3SN,410400,Wholesale Rebates,DEDUCTION,,X,XOF
+N3SN,500000,COGS - Women,COGS,,X,XOF
+N3SN,500100,COGS - Men,COGS,,X,XOF
+N3SN,500200,COGS - Accessories,COGS,,X,XOF
+N3SN,500300,COGS - Footwear,COGS,,X,XOF
+N3SN,500400,COGS - Freight In,COGS,,X,XOF
+N3SN,500500,COGS - Customs & Duties,COGS,,X,XOF
+N3SN,500600,COGS - Inventory Adjustments,COGS,,X,XOF
+N3SN,500700,COGS - Shrinkage,COGS,,X,XOF
+N3SN,610000,Warehousing Costs,OPEX,,X,XOF
+N3SN,610100,Outbound Freight,OPEX,,X,XOF
+N3SN,610200,Last Mile Delivery,OPEX,,X,XOF
+N3SN,610300,Packaging Materials,OPEX,,X,XOF
+N3SN,610400,Returns Processing,OPEX,,X,XOF
+N3SN,610500,Third-Party Logistics,OPEX,,X,XOF
+N3SN,620000,Digital Marketing,OPEX,,X,XOF
+N3SN,620100,Print & OOH Advertising,OPEX,,X,XOF
+N3SN,620200,Influencer & Social Media,OPEX,,X,XOF
+N3SN,620300,CRM & Loyalty Program,OPEX,,X,XOF
+N3SN,620400,PR & Events,OPEX,,X,XOF
+N3SN,620500,Brand & Creative,OPEX,,X,XOF
+N3SN,620600,Seasonal Campaign Costs,OPEX,,X,XOF
+N3SN,630000,Store Staff Salaries,OPEX,,X,XOF
+N3SN,630100,Store Staff Benefits,OPEX,,X,XOF
+N3SN,630200,Store Manager Compensation,OPEX,,X,XOF
+N3SN,630300,Temporary / Seasonal Staff,OPEX,,X,XOF
+N3SN,630400,Sales Commission,OPEX,,X,XOF
+N3SN,630500,Training & Development,OPEX,,X,XOF
+N3SN,640000,Rent - Stores,OPEX,,X,XOF
+N3SN,640100,Rent - Offices,OPEX,,X,XOF
+N3SN,640200,Rent - Warehouses,OPEX,,X,XOF
+N3SN,650000,Utilities - Stores,OPEX,,X,XOF
+N3SN,650100,Utilities - Offices,OPEX,,X,XOF
+N3SN,650200,Utilities - Warehouses,OPEX,,X,XOF
+N3SN,660000,HQ Salaries,OPEX,,X,XOF
+N3SN,660100,HQ Benefits & Insurance,OPEX,,X,XOF
+N3SN,660200,Executive Compensation,OPEX,,X,XOF
+N3SN,661000,IT Infrastructure,OPEX,,X,XOF
+N3SN,661100,Software & Licensing,OPEX,,X,XOF
+N3SN,661200,Telecom & Connectivity,OPEX,,X,XOF
+N3SN,662000,Legal & Consulting,OPEX,,X,XOF
+N3SN,662100,Audit & Tax Advisory,OPEX,,X,XOF
+N3SN,662200,Bank Charges & Fees,OPEX,,X,XOF
+N3SN,663000,Travel & Entertainment,OPEX,,X,XOF
+N3SN,663100,Office Supplies,OPEX,,X,XOF
+N3SN,663200,Miscellaneous G&A,OPEX,,X,XOF
+N3SN,670000,Delivery Fees,OPEX,,X,XOF
+N3SN,670100,Payment Processing Fees,OPEX,,X,XOF
+N3SN,670200,Marketplace Commissions,OPEX,,X,XOF
+N3SN,690000,Depreciation - Fixed Assets,OPEX,,X,XOF
+N3SN,690100,Depreciation - RoU Assets,OPEX,,X,XOF
+N3SN,690200,Amortization - Intangibles,OPEX,,X,XOF
+N3SN,100000,Cash & Bank,ASSET,X,,XOF
+N3SN,110000,Accounts Receivable,ASSET,X,,XOF
+N3SN,120000,Inventory,ASSET,X,,XOF
+N3SN,130000,Prepaid Expenses,ASSET,X,,XOF
+N3SN,150000,Fixed Assets,ASSET,X,,XOF
+N3SN,160000,Accumulated Depreciation,ASSET,X,,XOF
+N3SN,200000,Accounts Payable,LIABILITY,X,,XOF
+N3SN,210000,Accrued Liabilities,LIABILITY,X,,XOF
+N3SN,220000,VAT / Sales Tax Payable,LIABILITY,X,,XOF
+N3SN,230000,Short-term Borrowings,LIABILITY,X,,XOF
+N3SN,300000,Share Capital,EQUITY,X,,XOF
+N3SN,310000,Retained Earnings,EQUITY,X,,XOF
+N3JP,400000,Gross Sales - Women,REVENUE,,X,JPY
+N3JP,400100,Gross Sales - Men,REVENUE,,X,JPY
+N3JP,400200,Gross Sales - Accessories,REVENUE,,X,JPY
+N3JP,400300,Gross Sales - Footwear,REVENUE,,X,JPY
+N3JP,401000,Gross Sales - Retail,REVENUE,,X,JPY
+N3JP,401100,Gross Sales - E-Commerce,REVENUE,,X,JPY
+N3JP,401200,Gross Sales - Outlet,REVENUE,,X,JPY
+N3JP,401300,Gross Sales - Wholesale,REVENUE,,X,JPY
+N3JP,410000,Sales Discounts,DEDUCTION,,X,JPY
+N3JP,410100,Sales Returns,DEDUCTION,,X,JPY
+N3JP,410200,Markdowns,DEDUCTION,,X,JPY
+N3JP,410300,Loyalty Discounts,DEDUCTION,,X,JPY
+N3JP,410400,Wholesale Rebates,DEDUCTION,,X,JPY
+N3JP,500000,COGS - Women,COGS,,X,JPY
+N3JP,500100,COGS - Men,COGS,,X,JPY
+N3JP,500200,COGS - Accessories,COGS,,X,JPY
+N3JP,500300,COGS - Footwear,COGS,,X,JPY
+N3JP,500400,COGS - Freight In,COGS,,X,JPY
+N3JP,500500,COGS - Customs & Duties,COGS,,X,JPY
+N3JP,500600,COGS - Inventory Adjustments,COGS,,X,JPY
+N3JP,500700,COGS - Shrinkage,COGS,,X,JPY
+N3JP,610000,Warehousing Costs,OPEX,,X,JPY
+N3JP,610100,Outbound Freight,OPEX,,X,JPY
+N3JP,610200,Last Mile Delivery,OPEX,,X,JPY
+N3JP,610300,Packaging Materials,OPEX,,X,JPY
+N3JP,610400,Returns Processing,OPEX,,X,JPY
+N3JP,610500,Third-Party Logistics,OPEX,,X,JPY
+N3JP,620000,Digital Marketing,OPEX,,X,JPY
+N3JP,620100,Print & OOH Advertising,OPEX,,X,JPY
+N3JP,620200,Influencer & Social Media,OPEX,,X,JPY
+N3JP,620300,CRM & Loyalty Program,OPEX,,X,JPY
+N3JP,620400,PR & Events,OPEX,,X,JPY
+N3JP,620500,Brand & Creative,OPEX,,X,JPY
+N3JP,620600,Seasonal Campaign Costs,OPEX,,X,JPY
+N3JP,630000,Store Staff Salaries,OPEX,,X,JPY
+N3JP,630100,Store Staff Benefits,OPEX,,X,JPY
+N3JP,630200,Store Manager Compensation,OPEX,,X,JPY
+N3JP,630300,Temporary / Seasonal Staff,OPEX,,X,JPY
+N3JP,630400,Sales Commission,OPEX,,X,JPY
+N3JP,630500,Training & Development,OPEX,,X,JPY
+N3JP,640000,Rent - Stores,OPEX,,X,JPY
+N3JP,640100,Rent - Offices,OPEX,,X,JPY
+N3JP,640200,Rent - Warehouses,OPEX,,X,JPY
+N3JP,650000,Utilities - Stores,OPEX,,X,JPY
+N3JP,650100,Utilities - Offices,OPEX,,X,JPY
+N3JP,650200,Utilities - Warehouses,OPEX,,X,JPY
+N3JP,660000,HQ Salaries,OPEX,,X,JPY
+N3JP,660100,HQ Benefits & Insurance,OPEX,,X,JPY
+N3JP,660200,Executive Compensation,OPEX,,X,JPY
+N3JP,661000,IT Infrastructure,OPEX,,X,JPY
+N3JP,661100,Software & Licensing,OPEX,,X,JPY
+N3JP,661200,Telecom & Connectivity,OPEX,,X,JPY
+N3JP,662000,Legal & Consulting,OPEX,,X,JPY
+N3JP,662100,Audit & Tax Advisory,OPEX,,X,JPY
+N3JP,662200,Bank Charges & Fees,OPEX,,X,JPY
+N3JP,663000,Travel & Entertainment,OPEX,,X,JPY
+N3JP,663100,Office Supplies,OPEX,,X,JPY
+N3JP,663200,Miscellaneous G&A,OPEX,,X,JPY
+N3JP,670000,Delivery Fees,OPEX,,X,JPY
+N3JP,670100,Payment Processing Fees,OPEX,,X,JPY
+N3JP,670200,Marketplace Commissions,OPEX,,X,JPY
+N3JP,690000,Depreciation - Fixed Assets,OPEX,,X,JPY
+N3JP,690100,Depreciation - RoU Assets,OPEX,,X,JPY
+N3JP,690200,Amortization - Intangibles,OPEX,,X,JPY
+N3JP,100000,Cash & Bank,ASSET,X,,JPY
+N3JP,110000,Accounts Receivable,ASSET,X,,JPY
+N3JP,120000,Inventory,ASSET,X,,JPY
+N3JP,130000,Prepaid Expenses,ASSET,X,,JPY
+N3JP,150000,Fixed Assets,ASSET,X,,JPY
+N3JP,160000,Accumulated Depreciation,ASSET,X,,JPY
+N3JP,200000,Accounts Payable,LIABILITY,X,,JPY
+N3JP,210000,Accrued Liabilities,LIABILITY,X,,JPY
+N3JP,220000,VAT / Sales Tax Payable,LIABILITY,X,,JPY
+N3JP,230000,Short-term Borrowings,LIABILITY,X,,JPY
+N3JP,300000,Share Capital,EQUITY,X,,JPY
+N3JP,310000,Retained Earnings,EQUITY,X,,JPY
+N3US,400000,Gross Sales - Women,REVENUE,,X,USD
+N3US,400100,Gross Sales - Men,REVENUE,,X,USD
+N3US,400200,Gross Sales - Accessories,REVENUE,,X,USD
+N3US,400300,Gross Sales - Footwear,REVENUE,,X,USD
+N3US,401000,Gross Sales - Retail,REVENUE,,X,USD
+N3US,401100,Gross Sales - E-Commerce,REVENUE,,X,USD
+N3US,401200,Gross Sales - Outlet,REVENUE,,X,USD
+N3US,401300,Gross Sales - Wholesale,REVENUE,,X,USD
+N3US,410000,Sales Discounts,DEDUCTION,,X,USD
+N3US,410100,Sales Returns,DEDUCTION,,X,USD
+N3US,410200,Markdowns,DEDUCTION,,X,USD
+N3US,410300,Loyalty Discounts,DEDUCTION,,X,USD
+N3US,410400,Wholesale Rebates,DEDUCTION,,X,USD
+N3US,500000,COGS - Women,COGS,,X,USD
+N3US,500100,COGS - Men,COGS,,X,USD
+N3US,500200,COGS - Accessories,COGS,,X,USD
+N3US,500300,COGS - Footwear,COGS,,X,USD
+N3US,500400,COGS - Freight In,COGS,,X,USD
+N3US,500500,COGS - Customs & Duties,COGS,,X,USD
+N3US,500600,COGS - Inventory Adjustments,COGS,,X,USD
+N3US,500700,COGS - Shrinkage,COGS,,X,USD
+N3US,610000,Warehousing Costs,OPEX,,X,USD
+N3US,610100,Outbound Freight,OPEX,,X,USD
+N3US,610200,Last Mile Delivery,OPEX,,X,USD
+N3US,610300,Packaging Materials,OPEX,,X,USD
+N3US,610400,Returns Processing,OPEX,,X,USD
+N3US,610500,Third-Party Logistics,OPEX,,X,USD
+N3US,620000,Digital Marketing,OPEX,,X,USD
+N3US,620100,Print & OOH Advertising,OPEX,,X,USD
+N3US,620200,Influencer & Social Media,OPEX,,X,USD
+N3US,620300,CRM & Loyalty Program,OPEX,,X,USD
+N3US,620400,PR & Events,OPEX,,X,USD
+N3US,620500,Brand & Creative,OPEX,,X,USD
+N3US,620600,Seasonal Campaign Costs,OPEX,,X,USD
+N3US,630000,Store Staff Salaries,OPEX,,X,USD
+N3US,630100,Store Staff Benefits,OPEX,,X,USD
+N3US,630200,Store Manager Compensation,OPEX,,X,USD
+N3US,630300,Temporary / Seasonal Staff,OPEX,,X,USD
+N3US,630400,Sales Commission,OPEX,,X,USD
+N3US,630500,Training & Development,OPEX,,X,USD
+N3US,640000,Rent - Stores,OPEX,,X,USD
+N3US,640100,Rent - Offices,OPEX,,X,USD
+N3US,640200,Rent - Warehouses,OPEX,,X,USD
+N3US,650000,Utilities - Stores,OPEX,,X,USD
+N3US,650100,Utilities - Offices,OPEX,,X,USD
+N3US,650200,Utilities - Warehouses,OPEX,,X,USD
+N3US,660000,HQ Salaries,OPEX,,X,USD
+N3US,660100,HQ Benefits & Insurance,OPEX,,X,USD
+N3US,660200,Executive Compensation,OPEX,,X,USD
+N3US,661000,IT Infrastructure,OPEX,,X,USD
+N3US,661100,Software & Licensing,OPEX,,X,USD
+N3US,661200,Telecom & Connectivity,OPEX,,X,USD
+N3US,662000,Legal & Consulting,OPEX,,X,USD
+N3US,662100,Audit & Tax Advisory,OPEX,,X,USD
+N3US,662200,Bank Charges & Fees,OPEX,,X,USD
+N3US,663000,Travel & Entertainment,OPEX,,X,USD
+N3US,663100,Office Supplies,OPEX,,X,USD
+N3US,663200,Miscellaneous G&A,OPEX,,X,USD
+N3US,670000,Delivery Fees,OPEX,,X,USD
+N3US,670100,Payment Processing Fees,OPEX,,X,USD
+N3US,670200,Marketplace Commissions,OPEX,,X,USD
+N3US,690000,Depreciation - Fixed Assets,OPEX,,X,USD
+N3US,690100,Depreciation - RoU Assets,OPEX,,X,USD
+N3US,690200,Amortization - Intangibles,OPEX,,X,USD
+N3US,100000,Cash & Bank,ASSET,X,,USD
+N3US,110000,Accounts Receivable,ASSET,X,,USD
+N3US,120000,Inventory,ASSET,X,,USD
+N3US,130000,Prepaid Expenses,ASSET,X,,USD
+N3US,150000,Fixed Assets,ASSET,X,,USD
+N3US,160000,Accumulated Depreciation,ASSET,X,,USD
+N3US,200000,Accounts Payable,LIABILITY,X,,USD
+N3US,210000,Accrued Liabilities,LIABILITY,X,,USD
+N3US,220000,VAT / Sales Tax Payable,LIABILITY,X,,USD
+N3US,230000,Short-term Borrowings,LIABILITY,X,,USD
+N3US,300000,Share Capital,EQUITY,X,,USD
+N3US,310000,Retained Earnings,EQUITY,X,,USD

@@ -1,0 +1,16 @@
+PNL_LINE_ID,PNL_LINE_NAME,SORT_ORDER,LINE_TYPE
+PL01,Gross Sales,10,SUM
+PL02,Discounts / Returns,20,SUM
+PL03,Net Sales,30,CALC
+PL04,COGS,40,SUM
+PL05,Gross Profit,50,CALC
+PL06,Logistics Expense,60,SUM
+PL07,Marketing Expense,70,SUM
+PL08,Store Payroll,80,SUM
+PL09,Occupancy Expense,90,SUM
+PL10,Utilities Expense,100,SUM
+PL11,G&A Expense,110,SUM
+PL12,Delivery & Payment Fees,120,SUM
+PL13,Depreciation & Amort,130,SUM
+PL14,EBITDA,140,CALC
+PL15,EBIT,150,CALC

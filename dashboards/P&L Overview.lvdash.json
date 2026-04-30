@@ -1,0 +1,1429 @@
+{
+  "datasets": [
+    {
+      "name": "pnl_data",
+      "displayName": "P&L Data",
+      "queryLines": [
+        "SELECT\n",
+        "  *\n",
+        "FROM\n",
+        "  n3n3.gold.profit_and_loss\n",
+        "ORDER BY\n",
+        "  sort_order"
+      ],
+      "columns": [
+        {
+          "displayName": "Amount EUR Millions",
+          "description": "",
+          "expression": "`amount_eur` / 1000000"
+        },
+        {
+          "displayName": "Gross Sales Amount",
+          "description": "",
+          "expression": "CASE WHEN `pnl_line_name` = 'Gross Sales' THEN `amount_eur` / 1000000 ELSE 0 END"
+        },
+        {
+          "displayName": "Net Sales Amount",
+          "description": "",
+          "expression": "CASE WHEN `pnl_line_name` = 'Net Sales' THEN `amount_eur` / 1000000 ELSE 0 END"
+        },
+        {
+          "displayName": "Gross Profit Amount",
+          "description": "",
+          "expression": "CASE WHEN `pnl_line_name` = 'Gross Profit' THEN `amount_eur` / 1000000 ELSE 0 END"
+        },
+        {
+          "displayName": "EBITDA Amount",
+          "description": "",
+          "expression": "CASE WHEN `pnl_line_name` = 'EBITDA' THEN `amount_eur` / 1000000 ELSE 0 END"
+        },
+        {
+          "displayName": "Version Description",
+          "description": "",
+          "expression": "CASE WHEN `version` = 'ACT' THEN 'Actual' WHEN `version` = 'BUD' THEN 'Budget' WHEN `version` = 'FC1' THEN 'Forecast 1' ELSE `version` END"
+        },
+        {
+          "displayName": "Waterfall Category",
+          "description": "",
+          "expression": "CASE WHEN `pnl_line_name` IN ('Gross Sales') THEN 'Revenue' WHEN `pnl_line_name` IN ('Net Sales', 'Gross Profit', 'EBITDA') THEN 'Total' ELSE 'Expense' END"
+        },
+        {
+          "displayName": "Country Name",
+          "description": "",
+          "expression": "CASE WHEN `company_country` = 'US' THEN 'United States of America' WHEN `company_country` = 'DE' THEN 'Germany' WHEN `company_country` = 'FR' THEN 'France' WHEN `company_country` = 'IT' THEN 'Italy' WHEN `company_country` = 'ES' THEN 'Spain' WHEN `company_country` = 'NL' THEN 'Netherlands' WHEN `company_country` = 'JP' THEN 'Japan' WHEN `company_country` = 'SN' THEN 'Senegal' ELSE `company_country` END"
+        }
+      ],
+      "catalog": "n3n3",
+      "schema": "default"
+    },
+    {
+      "name": "pnl_margins",
+      "displayName": "P&L Margins",
+      "queryLines": [
+        "WITH totals AS (\n",
+        "  SELECT\n",
+        "    company_code,\n",
+        "    company_name,\n",
+        "    fiscal_year,\n",
+        "    fiscal_period,\n",
+        "    version,\n",
+        "    pnl_line_name,\n",
+        "    SUM(amount_eur) AS total_amount\n",
+        "  FROM\n",
+        "    n3n3.gold.profit_and_loss\n",
+        "  WHERE\n",
+        "    pnl_line_name IN ('Net Sales', 'Gross Profit', 'EBITDA')\n",
+        "  GROUP BY\n",
+        "    company_code,\n",
+        "    company_name,\n",
+        "    fiscal_year,\n",
+        "    fiscal_period,\n",
+        "    version,\n",
+        "    pnl_line_name\n",
+        ")\n",
+        "SELECT\n",
+        "  company_code,\n",
+        "  company_name,\n",
+        "  fiscal_year,\n",
+        "  fiscal_period,\n",
+        "  version,\n",
+        "  SUM(\n",
+        "    CASE\n",
+        "      WHEN pnl_line_name = 'Gross Profit' THEN total_amount\n",
+        "      ELSE 0\n",
+        "    END\n",
+        "  ) AS gross_profit_eur,\n",
+        "  SUM(\n",
+        "    CASE\n",
+        "      WHEN pnl_line_name = 'Net Sales' THEN total_amount\n",
+        "      ELSE 0\n",
+        "    END\n",
+        "  ) AS net_sales_eur,\n",
+        "  SUM(\n",
+        "    CASE\n",
+        "      WHEN pnl_line_name = 'EBITDA' THEN total_amount\n",
+        "      ELSE 0\n",
+        "    END\n",
+        "  ) AS ebitda_eur\n",
+        "FROM\n",
+        "  totals\n",
+        "GROUP BY\n",
+        "  company_code,\n",
+        "  company_name,\n",
+        "  fiscal_year,\n",
+        "  fiscal_period,\n",
+        "  version"
+      ],
+      "columns": [
+        {
+          "displayName": "Gross Margin Pct",
+          "description": "Weighted gross margin percentage",
+          "expression": "SUM(`gross_profit_eur`) / NULLIF(SUM(`net_sales_eur`), 0)"
+        },
+        {
+          "displayName": "EBITDA Margin Pct",
+          "description": "Weighted EBITDA margin percentage",
+          "expression": "SUM(`ebitda_eur`) / NULLIF(SUM(`net_sales_eur`), 0)"
+        }
+      ]
+    },
+    {
+      "name": "geo_sales",
+      "displayName": "Net Sales by Country",
+      "queryLines": [
+        "SELECT\n",
+        "  company_country,\n",
+        "  CASE\n",
+        "    WHEN company_country = 'US' THEN 'United States of America'\n",
+        "    WHEN company_country = 'DE' THEN 'Germany'\n",
+        "    WHEN company_country = 'FR' THEN 'France'\n",
+        "    WHEN company_country = 'IT' THEN 'Italy'\n",
+        "    WHEN company_country = 'ES' THEN 'Spain'\n",
+        "    WHEN company_country = 'NL' THEN 'Netherlands'\n",
+        "    WHEN company_country = 'JP' THEN 'Japan'\n",
+        "    WHEN company_country = 'SN' THEN 'Senegal'\n",
+        "    ELSE company_country\n",
+        "  END AS country_name,\n",
+        "  fiscal_year,\n",
+        "  fiscal_period,\n",
+        "  version,\n",
+        "  pnl_line_name,\n",
+        "  SUM(amount_eur) / 1000000 AS amount_millions\n",
+        "FROM\n",
+        "  n3n3.gold.profit_and_loss\n",
+        "WHERE\n",
+        "  pnl_line_name = 'Net Sales'\n",
+        "GROUP BY\n",
+        "  ALL"
+      ],
+      "columns": [
+        {
+          "displayName": "Country ISO3",
+          "description": "",
+          "expression": "CASE WHEN `company_country` = 'US' THEN 'USA' WHEN `company_country` = 'DE' THEN 'DEU' WHEN `company_country` = 'FR' THEN 'FRA' WHEN `company_country` = 'IT' THEN 'ITA' WHEN `company_country` = 'ES' THEN 'ESP' WHEN `company_country` = 'NL' THEN 'NLD' WHEN `company_country` = 'JP' THEN 'JPN' WHEN `company_country` = 'SN' THEN 'SEN' ELSE `company_country` END"
+        }
+      ],
+      "catalog": "n3n3",
+      "schema": "default"
+    }
+  ],
+  "pages": [
+    {
+      "name": "5e96b726",
+      "displayName": "P&L Overview",
+      "layout": [
+        {
+          "widget": {
+            "name": "kpi_gross_sales",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "pnl_data",
+                  "fields": [
+                    {
+                      "name": "sum(Gross Sales Amount)",
+                      "expression": "SUM(`Gross Sales Amount`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "title": "Gross Sales",
+                "showTitle": true,
+                "showDescription": false
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(Gross Sales Amount)",
+                  "format": {
+                    "type": "number-currency",
+                    "currencyCode": "EUR",
+                    "decimalPlaces": {
+                      "type": "exact",
+                      "places": 1
+                    },
+                    "abbreviation": "none"
+                  },
+                  "displayName": "Gross Sales"
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "kpi_net_sales",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "pnl_data",
+                  "fields": [
+                    {
+                      "name": "sum(Net Sales Amount)",
+                      "expression": "SUM(`Net Sales Amount`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "title": "Net Sales",
+                "showTitle": true
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(Net Sales Amount)",
+                  "format": {
+                    "type": "number-currency",
+                    "currencyCode": "EUR",
+                    "decimalPlaces": {
+                      "type": "exact",
+                      "places": 1
+                    },
+                    "abbreviation": "none"
+                  },
+                  "displayName": "Net Sales"
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 2,
+            "y": 0,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "kpi_gross_profit",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "pnl_data",
+                  "fields": [
+                    {
+                      "name": "sum(Gross Profit Amount)",
+                      "expression": "SUM(`Gross Profit Amount`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "title": "Gross Profit",
+                "showTitle": true
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(Gross Profit Amount)",
+                  "format": {
+                    "type": "number-currency",
+                    "currencyCode": "EUR",
+                    "decimalPlaces": {
+                      "type": "exact",
+                      "places": 1
+                    },
+                    "abbreviation": "none"
+                  },
+                  "displayName": "Gross Profit"
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 0,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "kpi_ebitda",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "pnl_data",
+                  "fields": [
+                    {
+                      "name": "sum(EBITDA Amount)",
+                      "expression": "SUM(`EBITDA Amount`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "title": "EBITDA",
+                "showTitle": true
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(EBITDA Amount)",
+                  "format": {
+                    "type": "number-currency",
+                    "currencyCode": "EUR",
+                    "decimalPlaces": {
+                      "type": "exact",
+                      "places": 1
+                    },
+                    "abbreviation": "none"
+                  },
+                  "displayName": "EBITDA"
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 0,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "pnl_waterfall",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "pnl_data",
+                  "fields": [
+                    {
+                      "name": "pnl_line_name",
+                      "expression": "`pnl_line_name`"
+                    },
+                    {
+                      "name": "sum(Amount EUR Millions)",
+                      "expression": "SUM(`Amount EUR Millions`)"
+                    },
+                    {
+                      "name": "min(sort_order)",
+                      "expression": "MIN(`sort_order`)"
+                    }
+                  ],
+                  "disaggregated": false,
+                  "orders": [
+                    {
+                      "direction": "ASC",
+                      "expression": "MIN(`sort_order`)"
+                    }
+                  ]
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "title": "P&L Waterfall",
+                "showTitle": true
+              },
+              "total": {
+                "hide": true
+              },
+              "mark": {
+                "colors": [
+                  "#5C3A21",
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 2
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 3
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 4
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 5
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 6
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 7
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 8
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 9
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 10
+                  }
+                ]
+              },
+              "widgetType": "waterfall",
+              "encodings": {
+                "x": {
+                  "fieldName": "pnl_line_name",
+                  "displayName": "P&L Line",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "measure",
+                      "measure": {
+                        "fieldName": "min(sort_order)"
+                      }
+                    }
+                  }
+                },
+                "y": {
+                  "fieldName": "sum(Amount EUR Millions)",
+                  "format": {
+                    "type": "number-currency",
+                    "currencyCode": "EUR",
+                    "decimalPlaces": {
+                      "type": "exact",
+                      "places": 1
+                    },
+                    "abbreviation": "none"
+                  },
+                  "displayName": "Amount (M EUR)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "label": {
+                  "show": true
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 3,
+            "width": 6,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
+            "name": "act_vs_bud",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "pnl_data",
+                  "fields": [
+                    {
+                      "name": "Version Description",
+                      "expression": "`Version Description`"
+                    },
+                    {
+                      "name": "pnl_line_name",
+                      "expression": "`pnl_line_name`"
+                    },
+                    {
+                      "name": "sum(Amount EUR Millions)",
+                      "expression": "SUM(`Amount EUR Millions`)"
+                    },
+                    {
+                      "name": "min(sort_order)",
+                      "expression": "MIN(`sort_order`)"
+                    }
+                  ],
+                  "filters": [
+                    {
+                      "expression": "`pnl_line_name` IN ('Gross Sales', 'Net Sales', 'Gross Profit', 'EBITDA')"
+                    }
+                  ],
+                  "cubeGroupingSets": {
+                    "sets": [
+                      {
+                        "fieldNames": [
+                          "Version Description"
+                        ]
+                      },
+                      {
+                        "fieldNames": [
+                          "pnl_line_name"
+                        ]
+                      }
+                    ]
+                  },
+                  "disaggregated": false,
+                  "orders": [
+                    {
+                      "direction": "ASC",
+                      "expression": "MIN(`sort_order`)"
+                    }
+                  ]
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "title": "ACT vs BUD Variance",
+                "showTitle": true
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "pnl_line_name",
+                  "displayName": "P&L Line",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "measure",
+                      "measure": {
+                        "fieldName": "min(sort_order)"
+                      }
+                    }
+                  }
+                },
+                "y": {
+                  "fieldName": "sum(Amount EUR Millions)",
+                  "format": {
+                    "type": "number-currency",
+                    "currencyCode": "EUR",
+                    "decimalPlaces": {
+                      "type": "exact",
+                      "places": 0
+                    },
+                    "abbreviation": "none"
+                  },
+                  "displayName": "Amount (M EUR)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "color": {
+                  "fieldName": "Version Description",
+                  "legend": {
+                    "position": "bottom"
+                  },
+                  "displayName": "Version",
+                  "scale": {
+                    "type": "categorical",
+                    "mappings": [
+                      {
+                        "value": "Actual",
+                        "color": "#5C3A21"
+                      },
+                      {
+                        "value": "Budget",
+                        "color": "#C9985A"
+                      },
+                      {
+                        "value": "Forecast 1",
+                        "color": "#E8C9A0"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 3,
+            "width": 6,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
+            "name": "pnl_detail_table",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "pnl_data",
+                  "fields": [
+                    {
+                      "name": "pnl_line_name",
+                      "expression": "`pnl_line_name`"
+                    },
+                    {
+                      "name": "fiscal_period",
+                      "expression": "`fiscal_period`"
+                    },
+                    {
+                      "name": "sum(Amount EUR Millions)",
+                      "expression": "SUM(`Amount EUR Millions`)"
+                    }
+                  ],
+                  "cubeGroupingSets": {
+                    "sets": [
+                      {
+                        "fieldNames": [
+                          "pnl_line_name"
+                        ]
+                      },
+                      {
+                        "fieldNames": [
+                          "fiscal_period"
+                        ]
+                      }
+                    ]
+                  },
+                  "disaggregated": false,
+                  "orders": [
+                    {
+                      "direction": "ASC",
+                      "expression": "`pnl_line_name`"
+                    },
+                    {
+                      "direction": "ASC",
+                      "expression": "`fiscal_period`"
+                    }
+                  ]
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "title": "Detailed P&L by Period",
+                "showTitle": true
+              },
+              "widgetType": "pivot",
+              "encodings": {
+                "rows": [
+                  {
+                    "fieldName": "pnl_line_name",
+                    "scale": {
+                      "type": "categorical",
+                      "sort": {
+                        "by": "custom-order",
+                        "orderedValues": [
+                          "Gross Sales",
+                          "Discounts / Returns",
+                          "Net Sales",
+                          "COGS",
+                          "Gross Profit",
+                          "Logistics Expense",
+                          "Marketing Expense",
+                          "Store Payroll",
+                          "Occupancy Expense",
+                          "Utilities Expense",
+                          "G&A Expense",
+                          "Delivery & Payment Fees",
+                          "Depreciation & Amort",
+                          "EBITDA",
+                          "EBIT"
+                        ]
+                      }
+                    },
+                    "displayName": "P&L Line"
+                  }
+                ],
+                "columns": [
+                  {
+                    "fieldName": "fiscal_period",
+                    "displayTotal": true,
+                    "displayName": "Fiscal Period"
+                  }
+                ],
+                "cell": {
+                  "type": "multi-cell",
+                  "fields": [
+                    {
+                      "fieldName": "sum(Amount EUR Millions)",
+                      "cellType": "text",
+                      "displayName": "Amount (M EUR)"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 20,
+            "width": 12,
+            "height": 10
+          }
+        },
+        {
+          "widget": {
+            "name": "kpi_gross_margin_new",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "pnl_margins",
+                  "fields": [
+                    {
+                      "name": "measure(Gross Margin Pct)",
+                      "expression": "MEASURE(`Gross Margin Pct`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "title": "Gross Margin %",
+                "showTitle": true
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "measure(Gross Margin Pct)",
+                  "format": {
+                    "type": "number-percent",
+                    "decimalPlaces": {
+                      "type": "exact",
+                      "places": 1
+                    }
+                  },
+                  "displayName": "Gross Margin %"
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 8,
+            "y": 0,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "kpi_ebitda_margin_new",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "pnl_margins",
+                  "fields": [
+                    {
+                      "name": "measure(EBITDA Margin Pct)",
+                      "expression": "MEASURE(`EBITDA Margin Pct`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "title": "EBITDA Margin %",
+                "showTitle": true
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "measure(EBITDA Margin Pct)",
+                  "format": {
+                    "type": "number-percent",
+                    "decimalPlaces": {
+                      "type": "exact",
+                      "places": 1
+                    }
+                  },
+                  "displayName": "EBITDA Margin %"
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 10,
+            "y": 0,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "revenue_by_channel",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "pnl_data",
+                  "fields": [
+                    {
+                      "name": "sum(Gross Sales Amount)",
+                      "expression": "SUM(`Gross Sales Amount`)"
+                    },
+                    {
+                      "name": "distribution_channel_name",
+                      "expression": "`distribution_channel_name`"
+                    }
+                  ],
+                  "filters": [
+                    {
+                      "expression": "`pnl_line_name` = 'Gross Sales'"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "title": "Gross Sales by Distribution Channel",
+                "showTitle": true
+              },
+              "widgetType": "pie",
+              "encodings": {
+                "angle": {
+                  "fieldName": "sum(Gross Sales Amount)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Gross Sales (M EUR)"
+                },
+                "color": {
+                  "fieldName": "distribution_channel_name",
+                  "displayName": "Distribution Channel",
+                  "scale": {
+                    "type": "categorical",
+                    "mappings": [
+                      {
+                        "value": "Wholesale",
+                        "color": "#5C3A21"
+                      },
+                      {
+                        "value": "Retail Stores",
+                        "color": "#C9985A"
+                      },
+                      {
+                        "value": "E-Commerce",
+                        "color": "#E8C9A0"
+                      },
+                      {
+                        "value": "Outlet",
+                        "color": "#D4956B"
+                      }
+                    ]
+                  }
+                },
+                "label": {
+                  "show": true
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 10,
+            "width": 6,
+            "height": 10
+          }
+        },
+        {
+          "widget": {
+            "name": "monthly_trend",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "pnl_data",
+                  "fields": [
+                    {
+                      "name": "pnl_line_name",
+                      "expression": "`pnl_line_name`"
+                    },
+                    {
+                      "name": "fiscal_period",
+                      "expression": "`fiscal_period`"
+                    },
+                    {
+                      "name": "sum(Amount EUR Millions)",
+                      "expression": "SUM(`Amount EUR Millions`)"
+                    }
+                  ],
+                  "filters": [
+                    {
+                      "expression": "`pnl_line_name` IN ('Net Sales', 'Gross Profit')"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "title": "Monthly Trend: Net Sales & Gross Profit",
+                "showTitle": true
+              },
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "fiscal_period",
+                  "displayName": "Fiscal Period",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "y": {
+                  "fieldName": "sum(Amount EUR Millions)",
+                  "format": {
+                    "type": "number-currency",
+                    "currencyCode": "EUR",
+                    "decimalPlaces": {
+                      "type": "exact",
+                      "places": 1
+                    },
+                    "abbreviation": "none"
+                  },
+                  "displayName": "Amount (M EUR)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "color": {
+                  "fieldName": "pnl_line_name",
+                  "legend": {
+                    "position": "bottom"
+                  },
+                  "displayName": "P&L Line",
+                  "scale": {
+                    "type": "categorical",
+                    "mappings": [
+                      {
+                        "value": "Gross Profit",
+                        "color": "#5C3A21"
+                      },
+                      {
+                        "value": "Net Sales",
+                        "color": "#C9985A"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 10,
+            "width": 6,
+            "height": 10
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "layoutVersion": "GRID_V1"
+    },
+    {
+      "name": "global_filters",
+      "displayName": "Global Filters",
+      "layout": [
+        {
+          "widget": {
+            "name": "filter_fiscal_year",
+            "queries": [
+              {
+                "name": "dashboards/01f130e4adf5106faf8811c26307ad28/datasets/01f130e4d47f1172bfb4665039fefbe8_fiscal_year",
+                "query": {
+                  "datasetName": "pnl_data",
+                  "fields": [
+                    {
+                      "name": "fiscal_year",
+                      "expression": "`fiscal_year`"
+                    },
+                    {
+                      "name": "fiscal_year_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              },
+              {
+                "name": "dashboards/01f130e4adf5106faf8811c26307ad28/datasets/01f130e5274b1c25b1825a947a0485a8_fiscal_year",
+                "query": {
+                  "datasetName": "pnl_margins",
+                  "fields": [
+                    {
+                      "name": "fiscal_year",
+                      "expression": "`fiscal_year`"
+                    },
+                    {
+                      "name": "fiscal_year_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "title": "Fiscal Year",
+                "showTitle": true
+              },
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "fiscal_year",
+                    "queryName": "dashboards/01f130e4adf5106faf8811c26307ad28/datasets/01f130e4d47f1172bfb4665039fefbe8_fiscal_year"
+                  },
+                  {
+                    "fieldName": "fiscal_year",
+                    "queryName": "dashboards/01f130e4adf5106faf8811c26307ad28/datasets/01f130e5274b1c25b1825a947a0485a8_fiscal_year"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 2,
+            "height": 4
+          }
+        },
+        {
+          "widget": {
+            "name": "filter_fiscal_period",
+            "queries": [
+              {
+                "name": "dashboards/01f130e4adf5106faf8811c26307ad28/datasets/01f130e4d47f1172bfb4665039fefbe8_fiscal_period",
+                "query": {
+                  "datasetName": "pnl_data",
+                  "fields": [
+                    {
+                      "name": "fiscal_period",
+                      "expression": "`fiscal_period`"
+                    },
+                    {
+                      "name": "fiscal_period_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              },
+              {
+                "name": "dashboards/01f130e4adf5106faf8811c26307ad28/datasets/01f130e5274b1c25b1825a947a0485a8_fiscal_period",
+                "query": {
+                  "datasetName": "pnl_margins",
+                  "fields": [
+                    {
+                      "name": "fiscal_period",
+                      "expression": "`fiscal_period`"
+                    },
+                    {
+                      "name": "fiscal_period_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "title": "Fiscal Period",
+                "showTitle": true
+              },
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "fiscal_period",
+                    "queryName": "dashboards/01f130e4adf5106faf8811c26307ad28/datasets/01f130e4d47f1172bfb4665039fefbe8_fiscal_period"
+                  },
+                  {
+                    "fieldName": "fiscal_period",
+                    "queryName": "dashboards/01f130e4adf5106faf8811c26307ad28/datasets/01f130e5274b1c25b1825a947a0485a8_fiscal_period"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 2,
+            "y": 0,
+            "width": 2,
+            "height": 4
+          }
+        },
+        {
+          "widget": {
+            "name": "filter_version",
+            "queries": [
+              {
+                "name": "dashboards/01f130e4adf5106faf8811c26307ad28/datasets/01f130e4d47f1172bfb4665039fefbe8_version",
+                "query": {
+                  "datasetName": "pnl_data",
+                  "fields": [
+                    {
+                      "name": "version",
+                      "expression": "`version`"
+                    },
+                    {
+                      "name": "version_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              },
+              {
+                "name": "dashboards/01f130e4adf5106faf8811c26307ad28/datasets/01f130e5274b1c25b1825a947a0485a8_version",
+                "query": {
+                  "datasetName": "pnl_margins",
+                  "fields": [
+                    {
+                      "name": "version",
+                      "expression": "`version`"
+                    },
+                    {
+                      "name": "version_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "title": "Version",
+                "showTitle": true
+              },
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "version",
+                    "queryName": "dashboards/01f130e4adf5106faf8811c26307ad28/datasets/01f130e4d47f1172bfb4665039fefbe8_version"
+                  },
+                  {
+                    "fieldName": "version",
+                    "queryName": "dashboards/01f130e4adf5106faf8811c26307ad28/datasets/01f130e5274b1c25b1825a947a0485a8_version"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 0,
+            "width": 2,
+            "height": 4
+          }
+        },
+        {
+          "widget": {
+            "name": "filter_company_code",
+            "queries": [
+              {
+                "name": "dashboards/01f130e4adf5106faf8811c26307ad28/datasets/01f130e4d47f1172bfb4665039fefbe8_company_name",
+                "query": {
+                  "datasetName": "pnl_data",
+                  "fields": [
+                    {
+                      "name": "company_name",
+                      "expression": "`company_name`"
+                    },
+                    {
+                      "name": "company_name_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              },
+              {
+                "name": "dashboards/01f130e4adf5106faf8811c26307ad28/datasets/01f130e5274b1c25b1825a947a0485a8_company_name",
+                "query": {
+                  "datasetName": "pnl_margins",
+                  "fields": [
+                    {
+                      "name": "company_name",
+                      "expression": "`company_name`"
+                    },
+                    {
+                      "name": "company_name_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "title": "Company Name",
+                "showTitle": true
+              },
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "company_name",
+                    "queryName": "dashboards/01f130e4adf5106faf8811c26307ad28/datasets/01f130e4d47f1172bfb4665039fefbe8_company_name"
+                  },
+                  {
+                    "fieldName": "company_name",
+                    "queryName": "dashboards/01f130e4adf5106faf8811c26307ad28/datasets/01f130e5274b1c25b1825a947a0485a8_company_name"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 0,
+            "width": 2,
+            "height": 4
+          }
+        },
+        {
+          "widget": {
+            "name": "filter_division",
+            "queries": [
+              {
+                "name": "dashboards/01f13fdbc6af139dbda6253577df9ba9/datasets/01f13fdbc6af143a9afa45b54287fa44_division_name",
+                "query": {
+                  "datasetName": "pnl_data",
+                  "fields": [
+                    {
+                      "name": "division_name",
+                      "expression": "`division_name`"
+                    },
+                    {
+                      "name": "division_name_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "title": "Division",
+                "showTitle": true
+              },
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "division_name",
+                    "queryName": "dashboards/01f13fdbc6af139dbda6253577df9ba9/datasets/01f13fdbc6af143a9afa45b54287fa44_division_name"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 8,
+            "y": 0,
+            "width": 2,
+            "height": 4
+          }
+        },
+        {
+          "widget": {
+            "name": "filter_dist_channel",
+            "queries": [
+              {
+                "name": "dashboards/01f13fdbc6af139dbda6253577df9ba9/datasets/01f13fdbc6af143a9afa45b54287fa44_distribution_channel_name",
+                "query": {
+                  "datasetName": "pnl_data",
+                  "fields": [
+                    {
+                      "name": "distribution_channel_name",
+                      "expression": "`distribution_channel_name`"
+                    },
+                    {
+                      "name": "distribution_channel_name_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "title": "Distribution Channel",
+                "showTitle": true
+              },
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "distribution_channel_name",
+                    "queryName": "dashboards/01f13fdbc6af139dbda6253577df9ba9/datasets/01f13fdbc6af143a9afa45b54287fa44_distribution_channel_name"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 10,
+            "y": 0,
+            "width": 2,
+            "height": 4
+          }
+        },
+        {
+          "widget": {
+            "name": "filter_sales_org",
+            "queries": [
+              {
+                "name": "dashboards/01f13fdbc6af139dbda6253577df9ba9/datasets/01f13fdbc6af143a9afa45b54287fa44_sales_org_name",
+                "query": {
+                  "datasetName": "pnl_data",
+                  "fields": [
+                    {
+                      "name": "sales_org_name",
+                      "expression": "`sales_org_name`"
+                    },
+                    {
+                      "name": "sales_org_name_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "title": "Sales Organization",
+                "showTitle": true
+              },
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "sales_org_name",
+                    "queryName": "dashboards/01f13fdbc6af139dbda6253577df9ba9/datasets/01f13fdbc6af143a9afa45b54287fa44_sales_org_name"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 4,
+            "width": 2,
+            "height": 4
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_GLOBAL_FILTERS",
+      "layoutVersion": "GRID_V1"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    },
+    "applyModeEnabled": false
+  }
+}

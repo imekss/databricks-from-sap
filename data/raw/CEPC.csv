@@ -1,0 +1,41 @@
+PRCTR,KOKRS,BUKRS,DATAB,DATBI,KTEXT,LTEXT,GSBER,LAND1
+PC100,N300,N3NL,2020-01-01,9999-12-31,Women NL,Profit Center Women - N3N3 Netherlands B.V.,Northern Europe,NL
+PC101,N300,N3NL,2020-01-01,9999-12-31,Men NL,Profit Center Men - N3N3 Netherlands B.V.,Northern Europe,NL
+PC102,N300,N3NL,2020-01-01,9999-12-31,Accessories NL,Profit Center Accessories - N3N3 Netherlands B.V.,Northern Europe,NL
+PC103,N300,N3NL,2020-01-01,9999-12-31,Footwear NL,Profit Center Footwear - N3N3 Netherlands B.V.,Northern Europe,NL
+PC104,N300,N3NL,2020-01-01,9999-12-31,Corporate NL,Corporate Profit Center - N3N3 Netherlands B.V.,Northern Europe,NL
+PC105,N300,N3IT,2020-01-01,9999-12-31,Women IT,Profit Center Women - N3N3 Italia S.r.l.,Southern Europe,IT
+PC106,N300,N3IT,2020-01-01,9999-12-31,Men IT,Profit Center Men - N3N3 Italia S.r.l.,Southern Europe,IT
+PC107,N300,N3IT,2020-01-01,9999-12-31,Accessories IT,Profit Center Accessories - N3N3 Italia S.r.l.,Southern Europe,IT
+PC108,N300,N3IT,2020-01-01,9999-12-31,Footwear IT,Profit Center Footwear - N3N3 Italia S.r.l.,Southern Europe,IT
+PC109,N300,N3IT,2020-01-01,9999-12-31,Corporate IT,Corporate Profit Center - N3N3 Italia S.r.l.,Southern Europe,IT
+PC110,N300,N3FR,2020-01-01,9999-12-31,Women FR,Profit Center Women - N3N3 France S.A.S.,Western Europe,FR
+PC111,N300,N3FR,2020-01-01,9999-12-31,Men FR,Profit Center Men - N3N3 France S.A.S.,Western Europe,FR
+PC112,N300,N3FR,2020-01-01,9999-12-31,Accessories FR,Profit Center Accessories - N3N3 France S.A.S.,Western Europe,FR
+PC113,N300,N3FR,2020-01-01,9999-12-31,Footwear FR,Profit Center Footwear - N3N3 France S.A.S.,Western Europe,FR
+PC114,N300,N3FR,2020-01-01,9999-12-31,Corporate FR,Corporate Profit Center - N3N3 France S.A.S.,Western Europe,FR
+PC115,N300,N3DE,2020-01-01,9999-12-31,Women DE,Profit Center Women - N3N3 Deutschland GmbH,Central Europe,DE
+PC116,N300,N3DE,2020-01-01,9999-12-31,Men DE,Profit Center Men - N3N3 Deutschland GmbH,Central Europe,DE
+PC117,N300,N3DE,2020-01-01,9999-12-31,Accessories DE,Profit Center Accessories - N3N3 Deutschland GmbH,Central Europe,DE
+PC118,N300,N3DE,2020-01-01,9999-12-31,Footwear DE,Profit Center Footwear - N3N3 Deutschland GmbH,Central Europe,DE
+PC119,N300,N3DE,2020-01-01,9999-12-31,Corporate DE,Corporate Profit Center - N3N3 Deutschland GmbH,Central Europe,DE
+PC120,N300,N3ES,2020-01-01,9999-12-31,Women ES,Profit Center Women - N3N3 España S.L.,Southern Europe,ES
+PC121,N300,N3ES,2020-01-01,9999-12-31,Men ES,Profit Center Men - N3N3 España S.L.,Southern Europe,ES
+PC122,N300,N3ES,2020-01-01,9999-12-31,Accessories ES,Profit Center Accessories - N3N3 España S.L.,Southern Europe,ES
+PC123,N300,N3ES,2020-01-01,9999-12-31,Footwear ES,Profit Center Footwear - N3N3 España S.L.,Southern Europe,ES
+PC124,N300,N3ES,2020-01-01,9999-12-31,Corporate ES,Corporate Profit Center - N3N3 España S.L.,Southern Europe,ES
+PC125,N300,N3SN,2020-01-01,9999-12-31,Women SN,Profit Center Women - N3N3 Sénégal S.A.R.L.,West Africa,SN
+PC126,N300,N3SN,2020-01-01,9999-12-31,Men SN,Profit Center Men - N3N3 Sénégal S.A.R.L.,West Africa,SN
+PC127,N300,N3SN,2020-01-01,9999-12-31,Accessories SN,Profit Center Accessories - N3N3 Sénégal S.A.R.L.,West Africa,SN
+PC128,N300,N3SN,2020-01-01,9999-12-31,Footwear SN,Profit Center Footwear - N3N3 Sénégal S.A.R.L.,West Africa,SN
+PC129,N300,N3SN,2020-01-01,9999-12-31,Corporate SN,Corporate Profit Center - N3N3 Sénégal S.A.R.L.,West Africa,SN
+PC130,N300,N3JP,2020-01-01,9999-12-31,Women JP,Profit Center Women - N3N3 Japan K.K.,Asia Pacific,JP
+PC131,N300,N3JP,2020-01-01,9999-12-31,Men JP,Profit Center Men - N3N3 Japan K.K.,Asia Pacific,JP
+PC132,N300,N3JP,2020-01-01,9999-12-31,Accessories JP,Profit Center Accessories - N3N3 Japan K.K.,Asia Pacific,JP
+PC133,N300,N3JP,2020-01-01,9999-12-31,Footwear JP,Profit Center Footwear - N3N3 Japan K.K.,Asia Pacific,JP
+PC134,N300,N3JP,2020-01-01,9999-12-31,Corporate JP,Corporate Profit Center - N3N3 Japan K.K.,Asia Pacific,JP
+PC135,N300,N3US,2020-01-01,9999-12-31,Women US,Profit Center Women - N3N3 Inc.,North America,US
+PC136,N300,N3US,2020-01-01,9999-12-31,Men US,Profit Center Men - N3N3 Inc.,North America,US
+PC137,N300,N3US,2020-01-01,9999-12-31,Accessories US,Profit Center Accessories - N3N3 Inc.,North America,US
+PC138,N300,N3US,2020-01-01,9999-12-31,Footwear US,Profit Center Footwear - N3N3 Inc.,North America,US
+PC139,N300,N3US,2020-01-01,9999-12-31,Corporate US,Corporate Profit Center - N3N3 Inc.,North America,US
